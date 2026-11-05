@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-webview-startup-guard"
+        version="1.0.0">
+    <name>WebView Startup Guard</name>
+    <description>Keeps a Cordova app alive when the first Android 16 release throws "failed to redirect ResourcesImpl" while it loads the WebView provider.</description>
+    <license>MIT</license>
+    <keywords>cordova,android,webview,android16,crash</keywords>
+    <engines>
+        <engine name="cordova-android" version=">=10.0.0" />
+    </engines>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <preference name="webview" value="com.ochakov.plugins.GuardedWebViewEngine" />
+        </config-file>
+        <source-file src="src/android/GuardedWebViewEngine.java" target-dir="src/com/ochakov/plugins" />
+    </platform>
+</plugin>
